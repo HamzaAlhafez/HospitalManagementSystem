@@ -63,7 +63,7 @@ namespace HospitalManagementSystem.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-
+        [AllowAnonymous]
         public async Task<ActionResult> RegisterAdmin(RegisterAdminDto registerDto)
         {
             if (!ModelState.IsValid)
