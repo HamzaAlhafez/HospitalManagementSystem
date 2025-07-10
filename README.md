@@ -36,12 +36,8 @@ A secure RESTful API for hospital management built with ASP.NET Core 8, featurin
 - ASP.NET Core 8
 - Entity Framework Core
 - JWT Authentication
-- Dtos
 - Swagger UI
 - MailKit (Email services)
-  
-
-
 
 ## Getting Started
 
@@ -49,3 +45,24 @@ A secure RESTful API for hospital management built with ASP.NET Core 8, featurin
 - .NET 8 SDK
 - SQL Server
 - SMTP server credentials (for email)
+
+### Installation
+1. Clone the repository:
+   `bash
+   git clone https://github.com/HamzaAlhafez/HospitalManagementSystem.git
+   2. Configure app settings:
+   - Update `appsettings.json` with:
+     - Database connection string
+     - JWT secret key
+     - Email service credentials
+
+3. Run database migrations:
+   
+bash
+   dotnet ef database update
+  
+
+4. Run the application:
+   
+bash
+   dotnet run
