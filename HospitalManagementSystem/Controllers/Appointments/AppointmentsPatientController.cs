@@ -26,10 +26,12 @@ namespace HospitalManagementSystem.Controllers.Appointments
 
         [HttpPost("CreateAppointment")]
         [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
-
-        [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status500InternalServerError)]
+
+
+
         public async Task<ActionResult<AppointmentResponseDto>> CreateAppointment([FromBody] AppointmentPatientRequestDto dto)
         {
             if (!User.Identity.IsAuthenticated)
@@ -61,6 +63,7 @@ namespace HospitalManagementSystem.Controllers.Appointments
         }
         [HttpGet("GetAllAppointmentsPatient")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
 
@@ -80,6 +83,7 @@ namespace HospitalManagementSystem.Controllers.Appointments
 
         [HttpPatch("Update/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

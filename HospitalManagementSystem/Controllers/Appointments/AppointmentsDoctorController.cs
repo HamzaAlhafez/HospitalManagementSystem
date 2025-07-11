@@ -26,7 +26,7 @@ namespace HospitalManagementSystem.Controllers.Appointments
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
 
-        [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<AppointmentResponseDto>> CreateAppointment([FromBody] AppointmentDoctorRequestDto dto)
         {
@@ -77,6 +77,7 @@ namespace HospitalManagementSystem.Controllers.Appointments
         }
         [HttpPatch("{appointmentId}/confirm")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Confirm(int appointmentId)
         {
@@ -86,6 +87,7 @@ namespace HospitalManagementSystem.Controllers.Appointments
 
         [HttpPatch("{appointmentId}/cancel")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Cancel(int appointmentId, [FromBody] CancelRequestDto request)
         {
@@ -95,6 +97,7 @@ namespace HospitalManagementSystem.Controllers.Appointments
 
         [HttpPatch("{appointmentId}/complete")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
         [Authorize(Roles = "Doctor,Patient")]
         public async Task<IActionResult> Complete(int appointmentId)
@@ -106,6 +109,7 @@ namespace HospitalManagementSystem.Controllers.Appointments
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<AppointmentResponseDto>> UpdateAppointment(int id, AppointmentDoctorRequestDto dto)
         {

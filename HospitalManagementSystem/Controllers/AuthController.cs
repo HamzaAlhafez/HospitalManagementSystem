@@ -56,7 +56,9 @@ namespace HospitalManagementSystem.Controllers
         [HttpPost("RefreshToken")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize]
         [SetRefreshTokenCookie]
         public async Task<IActionResult> RefreshToken()
         {
@@ -75,7 +77,9 @@ namespace HospitalManagementSystem.Controllers
         [HttpPost("RevokeToken")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize]
         public async Task<IActionResult> RevokeToken(string RevokeToken)
         {
             var token = RevokeToken?? Request.Cookies["refreshToken"];
@@ -98,6 +102,7 @@ namespace HospitalManagementSystem.Controllers
         [HttpPost("Logout")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Authorize]
         public async Task<IActionResult> Logout()

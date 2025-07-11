@@ -40,7 +40,7 @@ namespace HospitalManagementSystem.Controllers.Appointments
 
             return Ok(result);
         }
-        [HttpGet("Appointemnt/{id}",Name ="GetAppointmentByid")]
+        [HttpGet("GetAppointmentById/{id}", Name ="GetAppointmentByid")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse),StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
