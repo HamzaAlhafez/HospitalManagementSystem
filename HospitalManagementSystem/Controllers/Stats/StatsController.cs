@@ -1,6 +1,7 @@
 ﻿using HospitalManagementSystem.DTOs.Responses;
 using HospitalManagementSystem.Models.Entities;
 using HospitalManagementSystem.Services.Interfaces.StatsManagement;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace HospitalManagementSystem.Controllers.Stats
     /// </summary>
     [Route("api/Stats")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class StatsController : ControllerBase
     {
         private readonly IStatsService _statsService;

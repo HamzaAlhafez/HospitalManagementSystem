@@ -42,7 +42,7 @@ namespace HospitalManagementSystem.Controllers.Reviews
 
 
         }
-        [HttpPost]
+        [HttpPost("Add")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -50,7 +50,7 @@ namespace HospitalManagementSystem.Controllers.Reviews
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ApiErrorResponseHandler.ApiErrorResponse), StatusCodes.Status500InternalServerError)]
         [Authorize(Roles = "Patient")]
-        public async Task<ActionResult<ReviewResponseDto>> AddReview(int patientId, CreateReviewRequestDto reviewDto)
+        public async Task<ActionResult<ReviewResponseDto>> AddReview(CreateReviewRequestDto reviewDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(new ApiErrorResponseHandler.ApiErrorResponse("Invalid request data", ModelState));
