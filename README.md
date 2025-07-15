@@ -36,7 +36,7 @@ D[Serilog] --> E[Structured Logging]
 F[Rate Limiting] --> G[API Protection]
 H[Postman] --> I[Testing Collection]
 ## Postman Collection
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/37e278763a3942ff8ebd)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://hamza-456417.postman.co/workspace/hamza's-Workspace~c56550d1-c028-4e83-8a37-2a48c5b4262d/collection/44009679-37e27876-3a39-42ff-8ebd-273cfdd4d4cf?action=share&source=collection_link&creator=44009679)
 
 Complete collection includes:
 - Authentication workflow (Login/Refresh/Logout)
