@@ -41,7 +41,8 @@ using Serilog;
 using HospitalManagementSystem.Services.Interfaces.StatsManagement;
 using HospitalManagementSystem.Services.StatsManagement;
 using HospitalManagementSystem.Repositories.Interfaces.StatsManagement;
-using HospitalManagementSystem.Repositories.StatsManagement; 
+using HospitalManagementSystem.Repositories.StatsManagement;
+using HospitalManagementSystem.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -127,6 +128,7 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+    app.UseMiddleware<RateLimtRequest>();
 
     app.UseHttpsRedirection();
 
