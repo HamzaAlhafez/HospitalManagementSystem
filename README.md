@@ -5,64 +5,92 @@
 
 A secure RESTful API for hospital management built with ASP.NET Core 8, featuring JWT authentication, role-based authorization, and comprehensive appointment management.
 
+## Key Improvements & Patterns
+- Repository Pattern: Implemented for data access abstraction
+- Serilog Logging: Structured logging with file and console sinks
+- Rate Limiting: Protection against brute-force attacks (5 requests/10s per client)
+- Postman Integration: Complete API testing collection included
+
 ## Features
 
 ### Core Functionality
 - ✅ JWT Authentication with role-based authorization
 - ✅ Refresh Token mechanism
-- ✅ Email notifications for appointments
+- ✅ Email notifications with attachments
 - ✅ Statistics dashboard for administrators
+- ✅ Pagination for all list endpoints
 
 ### Role-Based Access
 | Role       | Permissions |
 |------------|-------------|
-| Admin      | Manage doctors/patients, create appointments, view statistics |
-| Doctor     | Accept/reject appointments, view patient history |
-| Patient    | Request appointments, rate doctors |
+| Admin      | Manage all entities, view statistics |
+| Doctor     | Manage appointments, confirm/complete sessions |
+| Patient    | Book appointments, rate doctors |
 
-### Key Endpoints
-- Appointments Management
-  - Book/Cancel appointments (Patient)
-  - Accept/Reject appointments (Doctor)
-  - View all appointments (Admin)
-- Rating System
-  - Patients can rate doctors (1-5 stars)
-  - View average ratings per doctor
-- Email Notifications
-  - Appointment confirmations
-  - Status updates
+### Technical Highlights
+`mermaid
+graph LR
+A[Repository Pattern] --> B[Service Layer]
+B --> C[Controllers]
+D[Serilog] --> E[Structured Logging]
+F[Rate Limiting] --> G[API Protection]
+H[Postman] --> I[Testing Collection]
+## Postman Collection
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/37e278763a3942ff8ebd)
+
+Complete collection includes:
+- Authentication workflow (Login/Refresh/Logout)
+- CRUD operations for all entities
+- Role-specific endpoints
+- Pre-configured environment variables
+- Example requests for all endpoints
+
+**Collection Structure:**
+1. **Admins** - Manage admin accounts
+2. **Auth** - Authentication endpoints
+3. **Appointments** (Admin/Doctor/Patient roles)
+4. **Doctors** - Doctor management
+5. **Patients** - Patient management
+6. **Reviews** - Rating system
+7. **Stats** - Statistical data
+8. **Users** - Password management
+9. **Mailing** - Email services with attachments
 
 ## Technologies
 - ASP.NET Core 8
 - Entity Framework Core
 - JWT Authentication
+- Serilog
+- AspNetCoreRateLimit
+- MailKit
 - Swagger UI
-- MailKit (Email services)
+- xUnit (Testing)
 
 ## Getting Started
 
 ### Prerequisites
 - .NET 8 SDK
 - SQL Server
-- SMTP server credentials (for email)
+- SMTP credentials (for email)
 
 ### Installation
-1. Clone the repository:
-   `bash
-   git clone https://github.com/HamzaAlhafez/HospitalManagementSystem.git
-   2. Configure app settings:
-   - Update `appsettings.json` with:
-     - Database connection string
-     - JWT secret key
-     - Email service credentials
-
-3. Run database migrations:
-   
-bash
+1. Clone repository: git clone https://github.com/HamzaAlhafez/HospitalManagementSystem.git
+2.  update Configure appsettings.json
+3.  Apply migrations: bash
    dotnet ef database update
-  
+4. Run application:
 
-4. Run the application:
+## License
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
+
    
-bash
-   dotnet run
+
+  
+   
+
+
+
+  
+      
+   
+
