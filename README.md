@@ -18,7 +18,7 @@ A secure RESTful API for hospital management built with ASP.NET Core 8, featurin
 - ✅ Refresh Token mechanism
 - ✅ Email notifications with attachments
 - ✅ Statistics dashboard for administrators
-- ✅ Pagination for all list endpoints
+- ✅ Pagination
 
 ### Role-Based Access
 | Role       | Permissions |
@@ -64,7 +64,8 @@ Complete collection includes:
 - AspNetCoreRateLimit
 - MailKit
 - Swagger UI
-- xUnit (Testing)
+- postman
+
 
 ## Getting Started
 
